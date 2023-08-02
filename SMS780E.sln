@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS780E.WinForm", "SMSFW\SMS780E.WinForm.csproj", "{A30CD4FE-64FB-492E-ADE4-17646DAF48D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS780E.Storage", "SMS780E.Storage\SMS780E.Storage.csproj", "{B076E92A-4FCF-4ED9-A3BC-7514766EA922}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A30CD4FE-64FB-492E-ADE4-17646DAF48D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30CD4FE-64FB-492E-ADE4-17646DAF48D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30CD4FE-64FB-492E-ADE4-17646DAF48D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30CD4FE-64FB-492E-ADE4-17646DAF48D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B076E92A-4FCF-4ED9-A3BC-7514766EA922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B076E92A-4FCF-4ED9-A3BC-7514766EA922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B076E92A-4FCF-4ED9-A3BC-7514766EA922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B076E92A-4FCF-4ED9-A3BC-7514766EA922}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0D201B1-B4E4-425A-95AC-D5FF071DF568}
+	EndGlobalSection
+EndGlobal
