@@ -82,5 +82,125 @@ namespace SMSFW.Properties {
                 this["IsSavingLoginCfg"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EmailEnabled {
+            get {
+                return ((bool)(this["EmailEnabled"]));
+            }
+            set {
+                this["EmailEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailSmtp {
+            get {
+                return ((string)(this["EmailSmtp"]));
+            }
+            set {
+                this["EmailSmtp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailPort {
+            get {
+                return ((string)(this["EmailPort"]));
+            }
+            set {
+                this["EmailPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailAccount {
+            get {
+                return ((string)(this["EmailAccount"]));
+            }
+            set {
+                this["EmailAccount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailPassword {
+            get {
+                return ((string)(this["EmailPassword"]));
+            }
+            set {
+                this["EmailPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailSenderMail {
+            get {
+                return ((string)(this["EmailSenderMail"]));
+            }
+            set {
+                this["EmailSenderMail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailSenderName {
+            get {
+                return ((string)(this["EmailSenderName"]));
+            }
+            set {
+                this["EmailSenderName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailReceiverMail {
+            get {
+                return ((string)(this["EmailReceiverMail"]));
+            }
+            set {
+                this["EmailReceiverMail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmailReceiverName {
+            get {
+                return ((string)(this["EmailReceiverName"]));
+            }
+            set {
+                this["EmailReceiverName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EmailSsl {
+            get {
+                return ((bool)(this["EmailSsl"]));
+            }
+            set {
+                this["EmailSsl"] = value;
+            }
+        }
     }
 }

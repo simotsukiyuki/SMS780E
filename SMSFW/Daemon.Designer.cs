@@ -40,10 +40,11 @@
             // 
             // Daemon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 36F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(120, 0);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "Daemon";
             this.Text = "Daemon";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;

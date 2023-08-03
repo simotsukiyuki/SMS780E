@@ -33,8 +33,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.选项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btSendMsg = new ApeFree.ApeForms.Core.Controls.SimpleButton();
+            this.btRefresh = new ApeFree.ApeForms.Core.Controls.SimpleButton();
             this.tbSearchGo = new ApeFree.ApeForms.Core.Controls.SimpleButton();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,13 +46,18 @@
             this.tss_state = new System.Windows.Forms.ToolStripStatusLabel();
             this.tss_lastNewMsg = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStripNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.显示主界面ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmNewMsgEnabled = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripSeparator();
+            this.退出ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.timerLastMsgCounter = new System.Windows.Forms.Timer(this.components);
-            this.btRefresh = new ApeFree.ApeForms.Core.Controls.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.contextMenuStripNotifyIcon.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -87,10 +95,18 @@
             // 选项ToolStripMenuItem
             // 
             this.选项ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
             this.退出ToolStripMenuItem});
             this.选项ToolStripMenuItem.Name = "选项ToolStripMenuItem";
             this.选项ToolStripMenuItem.Size = new System.Drawing.Size(44, 18);
             this.选项ToolStripMenuItem.Text = "选项";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "邮箱转发设置";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // 退出ToolStripMenuItem
             // 
@@ -101,6 +117,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btSendMsg);
             this.panel1.Controls.Add(this.btRefresh);
             this.panel1.Controls.Add(this.tbSearchGo);
             this.panel1.Controls.Add(this.tbSearch);
@@ -111,6 +128,46 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(982, 20);
             this.panel1.TabIndex = 1;
+            // 
+            // btSendMsg
+            // 
+            this.btSendMsg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btSendMsg.BorderColor = System.Drawing.Color.Empty;
+            this.btSendMsg.BorderSize = 0;
+            this.btSendMsg.FlatAppearance.BorderSize = 0;
+            this.btSendMsg.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(224)))));
+            this.btSendMsg.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(163)))));
+            this.btSendMsg.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(244)))));
+            this.btSendMsg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSendMsg.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btSendMsg.Location = new System.Drawing.Point(288, 0);
+            this.btSendMsg.Margin = new System.Windows.Forms.Padding(1);
+            this.btSendMsg.Name = "btSendMsg";
+            this.btSendMsg.Size = new System.Drawing.Size(80, 20);
+            this.btSendMsg.TabIndex = 4;
+            this.btSendMsg.Text = "发送信息";
+            this.btSendMsg.UseVisualStyleBackColor = false;
+            this.btSendMsg.Click += new System.EventHandler(this.btSendMsg_Click);
+            // 
+            // btRefresh
+            // 
+            this.btRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btRefresh.BorderColor = System.Drawing.Color.Empty;
+            this.btRefresh.BorderSize = 0;
+            this.btRefresh.FlatAppearance.BorderSize = 0;
+            this.btRefresh.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(224)))));
+            this.btRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(163)))));
+            this.btRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(244)))));
+            this.btRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRefresh.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btRefresh.Location = new System.Drawing.Point(206, 0);
+            this.btRefresh.Margin = new System.Windows.Forms.Padding(1);
+            this.btRefresh.Name = "btRefresh";
+            this.btRefresh.Size = new System.Drawing.Size(80, 20);
+            this.btRefresh.TabIndex = 3;
+            this.btRefresh.Text = "重新加载";
+            this.btRefresh.UseVisualStyleBackColor = false;
+            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
             // 
             // tbSearchGo
             // 
@@ -197,36 +254,56 @@
             // 
             // notifyIcon1
             // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStripNotifyIcon;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "副卡短信接收工具";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // contextMenuStripNotifyIcon
+            // 
+            this.contextMenuStripNotifyIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.显示主界面ToolStripMenuItem,
+            this.tsmNewMsgEnabled,
+            this.toolStripComboBox1,
+            this.退出ToolStripMenuItem1});
+            this.contextMenuStripNotifyIcon.Name = "contextMenuStripNotifyIcon";
+            this.contextMenuStripNotifyIcon.Size = new System.Drawing.Size(161, 76);
+            // 
+            // 显示主界面ToolStripMenuItem
+            // 
+            this.显示主界面ToolStripMenuItem.Name = "显示主界面ToolStripMenuItem";
+            this.显示主界面ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.显示主界面ToolStripMenuItem.Text = "显示主界面";
+            this.显示主界面ToolStripMenuItem.Click += new System.EventHandler(this.显示主界面ToolStripMenuItem_Click);
+            // 
+            // tsmNewMsgEnabled
+            // 
+            this.tsmNewMsgEnabled.Checked = true;
+            this.tsmNewMsgEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmNewMsgEnabled.Name = "tsmNewMsgEnabled";
+            this.tsmNewMsgEnabled.Size = new System.Drawing.Size(160, 22);
+            this.tsmNewMsgEnabled.Text = "启用新消息提醒";
+            this.tsmNewMsgEnabled.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(157, 6);
+            // 
+            // 退出ToolStripMenuItem1
+            // 
+            this.退出ToolStripMenuItem1.Name = "退出ToolStripMenuItem1";
+            this.退出ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.退出ToolStripMenuItem1.Text = "退出";
+            this.退出ToolStripMenuItem1.Click += new System.EventHandler(this.退出ToolStripMenuItem1_Click);
             // 
             // timerLastMsgCounter
             // 
             this.timerLastMsgCounter.Enabled = true;
             this.timerLastMsgCounter.Interval = 60000;
             this.timerLastMsgCounter.Tick += new System.EventHandler(this.timerLastMsgCounter_Tick);
-            // 
-            // btRefresh
-            // 
-            this.btRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.btRefresh.BorderColor = System.Drawing.Color.Empty;
-            this.btRefresh.BorderSize = 0;
-            this.btRefresh.FlatAppearance.BorderSize = 0;
-            this.btRefresh.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(224)))));
-            this.btRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(97)))), ((int)(((byte)(163)))));
-            this.btRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(244)))));
-            this.btRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btRefresh.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btRefresh.Location = new System.Drawing.Point(206, 0);
-            this.btRefresh.Margin = new System.Windows.Forms.Padding(1);
-            this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(80, 20);
-            this.btRefresh.TabIndex = 3;
-            this.btRefresh.Text = "重新加载";
-            this.btRefresh.UseVisualStyleBackColor = false;
-            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
             // 
             // DesktopForm
             // 
@@ -250,6 +327,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.contextMenuStripNotifyIcon.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -271,5 +349,12 @@
         private System.Windows.Forms.ToolStripStatusLabel tss_lastNewMsg;
         private System.Windows.Forms.Timer timerLastMsgCounter;
         private ApeFree.ApeForms.Core.Controls.SimpleButton btRefresh;
+        private ApeFree.ApeForms.Core.Controls.SimpleButton btSendMsg;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripNotifyIcon;
+        private System.Windows.Forms.ToolStripMenuItem 显示主界面ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmNewMsgEnabled;
+        private System.Windows.Forms.ToolStripSeparator toolStripComboBox1;
     }
 }

@@ -17,6 +17,7 @@ namespace SMSFW
     {
         public Daemon daemon;
         DateTime lastMsgReceived;
+
         public DesktopForm()
         {
             InitializeComponent();
@@ -30,6 +31,8 @@ namespace SMSFW
             BindDataSource();
             tss_state.Text = "系统就绪，待机....";
             lastMsgReceived = DateTime.MinValue;
+
+            tsmNewMsgEnabled.Checked = true;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -58,20 +61,29 @@ namespace SMSFW
             this.WindowState = FormWindowState.Normal;
         }
 
+        private void NewMsgNotify(Msg msg)
+        {
+            if (tsmNewMsgEnabled.Checked == true)
+            {
+                Notification.Builder.ShowTextNotification(s =>
+                {
+                    // 标题
+                    s.Title = "新信息来自" + msg.from;
+                    // 消息内容
+                    s.Message = msg.msgContent + "\n接收日期：" + msg.recvTime.ToString();
+                    // 通知栏停留时长(毫秒)
+                    s.RetentionTime = 15000;
+                    //提示色
+                    s.ReminderColor = Color.LightSkyBlue;
+
+                });
+            }
+        }
+
         public void OnNewMsgReceived(Msg msg)
         {
             BindDataSource();
-            Notification.Builder.ShowTextNotification(s =>
-            {
-                // 标题
-                s.Title = "新信息来自" +msg.from;
-                // 消息内容
-                s.Message = msg.msgContent+"\n接收日期："+msg.recvTime.ToString();
-                // 通知栏停留时长(毫秒)
-                s.RetentionTime = 15000;
-                //提示色
-                s.ReminderColor = Color.LightSkyBlue;
-            });
+            NewMsgNotify(msg);
 
             tss_state.Text = "新消息已接收。待机....";
             lastMsgReceived = DateTime.Now;
@@ -159,6 +171,42 @@ namespace SMSFW
         private void btRefresh_Click(object sender, EventArgs e)
         {
             BindDataSource();
+        }
+
+        private void btSendMsg_Click(object sender, EventArgs e)
+        {
+            SendMsg sm = new SendMsg(daemon);
+            sm.ShowDialog();
+        }
+
+        private void 显示主界面ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void 退出ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            daemon.Exit();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (tsmNewMsgEnabled.Checked)
+            {
+                tsmNewMsgEnabled.Checked = false;
+
+            }
+            else
+            {
+                tsmNewMsgEnabled.Checked = true;
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MailCfg mailCfg = new MailCfg();
+            mailCfg.ShowDialog();
         }
     }
 }

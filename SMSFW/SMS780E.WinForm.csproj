@@ -103,6 +103,12 @@
     <Compile Include="BootForm.Designer.cs">
       <DependentUpon>BootForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MailCfg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailCfg.Designer.cs">
+      <DependentUpon>MailCfg.cs</DependentUpon>
+    </Compile>
     <Compile Include="MsgReader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendMsg.Designer.cs">
+      <DependentUpon>SendMsg.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Daemon.resx">
       <DependentUpon>Daemon.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BootForm.resx">
       <DependentUpon>BootForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailCfg.resx">
+      <DependentUpon>MailCfg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MsgReader.resx">
       <DependentUpon>MsgReader.cs</DependentUpon>
@@ -133,6 +148,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SendMsg.resx">
+      <DependentUpon>SendMsg.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -148,6 +166,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SMS780E.Email\SMS780E.Email.csproj">
+      <Project>{4429c222-ed36-479f-bf19-6d4de8253430}</Project>
+      <Name>SMS780E.Email</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMS780E.Storage\SMS780E.Storage.csproj">
       <Project>{b076e92a-4fcf-4ed9-a3bc-7514766ea922}</Project>
       <Name>SMS780E.Storage</Name>

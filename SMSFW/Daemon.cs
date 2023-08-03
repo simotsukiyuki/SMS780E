@@ -1,15 +1,9 @@
 ﻿using SerialPortHelperLib;
 using SMS780E.Storage;
+using SMS780E.Email;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace SMSFW
 {
@@ -146,6 +140,45 @@ namespace SMSFW
             msgMgr.InsertNewMsgToDb(newMsg);
 
             desktopForm.OnNewMsgReceived(newMsg);
+        }
+
+        public void SendMsg(string phone, string msg)
+        {
+            string msgJson = "{\"type\":\"sms\"," +
+                "\"to\":\"" + phone + "\"," +
+                "\"content\":\"" + msg + "\"}";
+            byte[] msgbytes = Encoding.UTF8.GetBytes(msgJson);
+            sp.WriteByte(msgbytes);
+        }
+
+        public void SendEmail(Msg msg)
+        {
+            if (Properties.Settings.Default.EmailEnabled)
+            {
+                SmtpConfig cfg = new SmtpConfig();
+                cfg.host = Properties.Settings.Default.EmailSmtp;
+                cfg.port = int.Parse(Properties.Settings.Default.EmailPort);
+                cfg.useSsl = Properties.Settings.Default.EmailSsl;
+                cfg.username = Properties.Settings.Default.EmailAccount;
+                cfg.password = Properties.Settings.Default.EmailPassword;
+
+                MailEntity entity = new MailEntity();
+                entity.fromMailAddress = Properties.Settings.Default.EmailSenderMail;
+                entity.fromName = Properties.Settings.Default.EmailSenderName;
+                entity.toMailAddress = Properties.Settings.Default.EmailReceiverMail;
+                entity.toName = Properties.Settings.Default.EmailReceiverName;
+
+                entity.subject = "来自" + msg.from + "的新消息";
+                entity.body = msg.msgContent + "\n\n" + "接收日期: " + msg.recvTime.ToString();
+
+                SMS780E.Email.SendEmail send = new SendEmail(cfg);
+                send.Send(entity);
+
+            }
+            else
+            {
+                return;
+            }
         }
 
         public Msg LoadMsgContent(string msgID)
