@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A30CD4FE-64FB-492E-ADE4-17646DAF48D4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SMSFW</RootNamespace>
-    <AssemblyName>SMSFW</AssemblyName>
+    <RootNamespace>SMS780E</RootNamespace>
+    <AssemblyName>SMS780E</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -23,9 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -49,6 +50,18 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>sms_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>981C6ED24AD9DC018D5E426725FCA90B75C9E215</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SMS780E.WinForm_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ApeFree.ApeDialogs, Version=0.10.14.0, Culture=neutral, processorArchitecture=MSIL">
@@ -85,6 +98,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Licences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licences.Designer.cs">
+      <DependentUpon>Licences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Daemon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +142,9 @@
     <Compile Include="SendMsg.Designer.cs">
       <DependentUpon>SendMsg.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Licences.resx">
+      <DependentUpon>Licences.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Daemon.resx">
       <DependentUpon>Daemon.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +169,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SendMsg.resx">
       <DependentUpon>SendMsg.cs</DependentUpon>
@@ -161,6 +184,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SMS780E.WinForm_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

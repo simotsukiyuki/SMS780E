@@ -18,7 +18,7 @@ namespace SMS780E.Email
             message.To.Add(new MailboxAddress(mail.toName, mail.toMailAddress));
             message.Subject = mail.subject;
 
-            message.Body = new TextPart("plain")
+            message.Body = new TextPart(MimeKit.Text.TextFormat.Plain)
             {
                 Text = mail.body
             };

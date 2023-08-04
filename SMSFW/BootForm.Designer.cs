@@ -1,4 +1,4 @@
-﻿namespace SMSFW
+﻿namespace SMS780E
 {
     partial class BootForm
     {

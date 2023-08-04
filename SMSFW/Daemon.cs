@@ -5,7 +5,7 @@ using System;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SMSFW
+namespace SMS780E
 {
     public partial class Daemon : Form
     {
@@ -140,6 +140,13 @@ namespace SMSFW
             msgMgr.InsertNewMsgToDb(newMsg);
 
             desktopForm.OnNewMsgReceived(newMsg);
+
+            SendEmail(newMsg, out string ex);
+            if (!string.IsNullOrEmpty(ex))
+            {
+                desktopForm.SendNotify("邮件发送失败", ex);
+            }
+
         }
 
         public void SendMsg(string phone, string msg)
@@ -151,32 +158,43 @@ namespace SMSFW
             sp.WriteByte(msgbytes);
         }
 
-        public void SendEmail(Msg msg)
+        public void SendEmail(Msg msg, out string exception)
         {
             if (Properties.Settings.Default.EmailEnabled)
             {
-                SmtpConfig cfg = new SmtpConfig();
-                cfg.host = Properties.Settings.Default.EmailSmtp;
-                cfg.port = int.Parse(Properties.Settings.Default.EmailPort);
-                cfg.useSsl = Properties.Settings.Default.EmailSsl;
-                cfg.username = Properties.Settings.Default.EmailAccount;
-                cfg.password = Properties.Settings.Default.EmailPassword;
+                try
+                {
 
-                MailEntity entity = new MailEntity();
-                entity.fromMailAddress = Properties.Settings.Default.EmailSenderMail;
-                entity.fromName = Properties.Settings.Default.EmailSenderName;
-                entity.toMailAddress = Properties.Settings.Default.EmailReceiverMail;
-                entity.toName = Properties.Settings.Default.EmailReceiverName;
+                    SmtpConfig cfg = new SmtpConfig();
+                    cfg.host = Properties.Settings.Default.EmailSmtp;
+                    cfg.port = int.Parse(Properties.Settings.Default.EmailPort);
+                    cfg.useSsl = Properties.Settings.Default.EmailSsl;
+                    cfg.username = Properties.Settings.Default.EmailAccount;
+                    cfg.password = Properties.Settings.Default.EmailPassword;
 
-                entity.subject = "来自" + msg.from + "的新消息";
-                entity.body = msg.msgContent + "\n\n" + "接收日期: " + msg.recvTime.ToString();
+                    MailEntity entity = new MailEntity();
+                    entity.fromMailAddress = Properties.Settings.Default.EmailSenderMail;
+                    entity.fromName = Properties.Settings.Default.EmailSenderName;
+                    entity.toMailAddress = Properties.Settings.Default.EmailReceiverMail;
+                    entity.toName = Properties.Settings.Default.EmailReceiverName;
 
-                SMS780E.Email.SendEmail send = new SendEmail(cfg);
-                send.Send(entity);
+                    entity.subject = "来自[" + msg.from + "]的新消息";
+                    entity.body = msg.msgContent + "\n\n" + "消息接收日期: " + msg.recvTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+                    SMS780E.Email.SendEmail send = new SendEmail(cfg);
+                    send.Send(entity);
+
+                    exception = null;
+                }
+                catch (Exception ex)
+                {
+                    exception = ex.ToString();
+                }
 
             }
             else
             {
+                exception = null;
                 return;
             }
         }

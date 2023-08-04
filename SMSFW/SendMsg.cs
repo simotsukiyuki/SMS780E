@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SMSFW
+namespace SMS780E
 {
     public partial class SendMsg : Form
     {
@@ -29,6 +29,11 @@ namespace SMSFW
             daemon.SendMsg(tbReceiver.Text, tbContent.Text);
             MessageBox.Show("已发送");
             this.Close();
+        }
+
+        private void SendMsg_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

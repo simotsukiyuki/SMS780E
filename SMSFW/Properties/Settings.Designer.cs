@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SMSFW.Properties {
+namespace SMS780E.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

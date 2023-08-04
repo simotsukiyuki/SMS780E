@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SMSFW
+namespace SMS780E
 {
     public partial class DesktopForm : Form
     {
@@ -65,18 +65,22 @@ namespace SMSFW
         {
             if (tsmNewMsgEnabled.Checked == true)
             {
-                Notification.Builder.ShowTextNotification(s =>
-                {
-                    // 标题
-                    s.Title = "新信息来自" + msg.from;
-                    // 消息内容
-                    s.Message = msg.msgContent + "\n接收日期：" + msg.recvTime.ToString();
-                    // 通知栏停留时长(毫秒)
-                    s.RetentionTime = 15000;
-                    //提示色
-                    s.ReminderColor = Color.LightSkyBlue;
+                SendNotify(
+                    "新信息来自" + msg.from,
+                    msg.msgContent + "\n接收日期：" + msg.recvTime.ToString()
+                    );
+                //Notification.Builder.ShowTextNotification(s =>
+                //{
+                //    // 标题
+                //    s.Title = "新信息来自" + msg.from;
+                //    // 消息内容
+                //    s.Message = msg.msgContent + "\n接收日期：" + msg.recvTime.ToString();
+                //    // 通知栏停留时长(毫秒)
+                //    s.RetentionTime = 15000;
+                //    //提示色
+                //    s.ReminderColor = Color.LightSkyBlue;
 
-                });
+                //});
             }
         }
 
@@ -87,6 +91,22 @@ namespace SMSFW
 
             tss_state.Text = "新消息已接收。待机....";
             lastMsgReceived = DateTime.Now;
+        }
+
+        public void SendNotify(string title, string content)
+        {
+            Notification.Builder.ShowTextNotification(s =>
+            {
+                // 标题
+                s.Title = title;
+                // 消息内容
+                s.Message = content;
+                // 通知栏停留时长(毫秒)
+                s.RetentionTime = 15000;
+                //提示色
+                s.ReminderColor = Color.LightSkyBlue;
+
+            });
         }
 
         public void OnNewMsgReceived()
@@ -207,6 +227,25 @@ namespace SMSFW
         {
             MailCfg mailCfg = new MailCfg();
             mailCfg.ShowDialog();
+        }
+
+        private void 许可证信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Licences licences = new Licences();
+            licences.ShowDialog();
+        }
+
+        private void 关于SMS780EToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string about = @"SMS780E短信收发工具 适配合宙Air780E(G)系列LTE Cat.1模块
+© 2023 SHIYUKI Software
+
+项目主页：https://github.com/simotsukiyuki/SMS780E
+设计开发：霜月雪SimotsukiYuki
+官方网站：https://www.shiyuki.com
+
+Version:"+ Application.ProductVersion.ToString();
+            MessageBox.Show(about, "关于SMS780E");
         }
     }
 }

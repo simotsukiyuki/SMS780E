@@ -1,4 +1,4 @@
-﻿namespace SMSFW
+﻿namespace SMS780E
 {
     partial class DesktopForm
     {
@@ -52,6 +52,9 @@
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripSeparator();
             this.退出ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.timerLastMsgCounter = new System.Windows.Forms.Timer(this.components);
+            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.许可证信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关于SMS780EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -84,7 +87,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(48, 48);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.选项ToolStripMenuItem});
+            this.选项ToolStripMenuItem,
+            this.关于ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 1, 0, 1);
@@ -305,6 +309,29 @@
             this.timerLastMsgCounter.Interval = 60000;
             this.timerLastMsgCounter.Tick += new System.EventHandler(this.timerLastMsgCounter_Tick);
             // 
+            // 关于ToolStripMenuItem
+            // 
+            this.关于ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.许可证信息ToolStripMenuItem,
+            this.关于SMS780EToolStripMenuItem});
+            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 18);
+            this.关于ToolStripMenuItem.Text = "关于";
+            // 
+            // 许可证信息ToolStripMenuItem
+            // 
+            this.许可证信息ToolStripMenuItem.Name = "许可证信息ToolStripMenuItem";
+            this.许可证信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.许可证信息ToolStripMenuItem.Text = "许可证信息";
+            this.许可证信息ToolStripMenuItem.Click += new System.EventHandler(this.许可证信息ToolStripMenuItem_Click);
+            // 
+            // 关于SMS780EToolStripMenuItem
+            // 
+            this.关于SMS780EToolStripMenuItem.Name = "关于SMS780EToolStripMenuItem";
+            this.关于SMS780EToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.关于SMS780EToolStripMenuItem.Text = "关于SMS780E";
+            this.关于SMS780EToolStripMenuItem.Click += new System.EventHandler(this.关于SMS780EToolStripMenuItem_Click);
+            // 
             // DesktopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -356,5 +383,8 @@
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsmNewMsgEnabled;
         private System.Windows.Forms.ToolStripSeparator toolStripComboBox1;
+        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 许可证信息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 关于SMS780EToolStripMenuItem;
     }
 }

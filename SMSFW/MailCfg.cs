@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SMSFW
+namespace SMS780E
 {
     public partial class MailCfg : Form
     {
@@ -45,6 +45,8 @@ namespace SMSFW
             senderName.Text = Properties.Settings.Default.EmailSenderName;
             receiverMail.Text = Properties.Settings.Default.EmailReceiverMail;
             receiverName.Text = Properties.Settings.Default.EmailReceiverName;
+
+            cbEnabled.Checked = Properties.Settings.Default.EmailEnabled;
         }
         private void btCancel_Click(object sender, EventArgs e)
         {
@@ -82,11 +84,12 @@ namespace SMSFW
                 entity.body =
                     @"恭喜！当您正确收到这份电子邮件的时候，说明您已经正确配置好了SMS780E短信接收工具的邮件转发功能。
 建议您为设置的邮箱发送地址添加白名单以避免邮件系统将转发邮件作为垃圾邮件处理。
-邮件发送日期：" + DateTime.Now.ToLongDateString();
+邮件发送时间：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                 SMS780E.Email.SendEmail send = new SendEmail(cfg);
                 send.Send(entity);
 
+                MessageBox.Show("已发送邮件，请查看您的邮箱。", "发送成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
