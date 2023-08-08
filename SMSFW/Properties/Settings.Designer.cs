@@ -202,5 +202,17 @@ namespace SMS780E.Properties {
                 this["EmailSsl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsAutoLogin {
+            get {
+                return ((bool)(this["IsAutoLogin"]));
+            }
+            set {
+                this["IsAutoLogin"] = value;
+            }
+        }
     }
 }

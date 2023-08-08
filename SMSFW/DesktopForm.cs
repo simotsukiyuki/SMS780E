@@ -244,8 +244,22 @@ namespace SMS780E
 设计开发：霜月雪SimotsukiYuki
 官方网站：https://www.shiyuki.com
 
-Version:"+ Application.ProductVersion.ToString();
+Version:" + Application.ProductVersion.ToString();
             MessageBox.Show(about, "关于SMS780E");
+        }
+
+        private void 清除自动登录信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("将清除自动登录信息。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                Properties.Settings.Default.IsSavingLoginCfg = false;
+                Properties.Settings.Default.IsAutoLogin = false;
+                Properties.Settings.Default.Save();
+
+                MessageBox.Show("已清除自动登录信息，下次登录请重新配置串口信息。", "操作成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

@@ -33,13 +33,24 @@ namespace SMS780E
                 t_data.Text = Properties.Settings.Default.SavedDatabits;
                 t_stop.Text = Properties.Settings.Default.SavedStopbits;
                 cbSave.Checked = Properties.Settings.Default.IsSavingLoginCfg;
+                cbAutoLogin.Checked = Properties.Settings.Default.IsAutoLogin;
+
+                if (Properties.Settings.Default.IsAutoLogin)
+                {
+                    Login();
+                }
             }
         }
 
         private void btStart_Click(object sender, EventArgs e)
         {
+            Login();
+        }
+
+        private void Login()
+        {
             bool startResult =
-                daemon.StartCom(t_com.Text, int.Parse(t_br.Text), int.Parse(t_data.Text), t_stop.Text, out string info);
+    daemon.StartCom(t_com.Text, int.Parse(t_br.Text), int.Parse(t_data.Text), t_stop.Text, out string info);
             if (!startResult)
             {
                 MessageBox.Show(info);
@@ -53,11 +64,23 @@ namespace SMS780E
                     Properties.Settings.Default.SavedDatabits = t_data.Text;
                     Properties.Settings.Default.SavedStopbits = t_stop.Text;
                     Properties.Settings.Default.IsSavingLoginCfg = true;
+
+                    if (cbAutoLogin.Checked == true)
+                    {
+                        Properties.Settings.Default.IsAutoLogin = true;
+                    }
+                    else
+                    {
+                        Properties.Settings.Default.IsAutoLogin = false;
+                    }
+
                     Properties.Settings.Default.Save();
                 }
-                else if (Properties.Settings.Default.IsSavingLoginCfg)
+                else
                 {
                     Properties.Settings.Default.IsSavingLoginCfg = false;
+                    Properties.Settings.Default.IsAutoLogin = false;
+
                     Properties.Settings.Default.Save();
                 }
 
@@ -76,6 +99,14 @@ namespace SMS780E
         private void BootForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             daemon.DirectExit();
+        }
+
+        private void cbAutoLogin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAutoLogin.Checked == true)
+            {
+                cbSave.Checked = true;
+            }
         }
     }
 }

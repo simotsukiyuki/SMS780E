@@ -12,15 +12,24 @@ namespace SMS780E.Storage
     {
         public static Msg ParseJsonToMsg(string json)
         {
-            JObject msgObj = JObject.Parse(json);
-            string sender = msgObj["from"].ToString();
-            string msgContent = msgObj["data"].ToString();
+            try
+            {
+                JObject msgObj = JObject.Parse(json);
+                string sender = msgObj["from"].ToString();
+                string msgContent = msgObj["data"].ToString();
 
-            Msg msg=new Msg(
-                Convert.ToString(DateTime.Now.Ticks, 16),
-                sender, msgContent,DateTime.Now);
+                Msg msg = new Msg(
+                    Convert.ToString(DateTime.Now.Ticks, 16),
+                    sender, msgContent, DateTime.Now);
 
-            return msg;
+                return msg;
+            }
+            catch
+            {
+                Msg msg = new Msg(Convert.ToString(DateTime.Now.Ticks, 16), "[数据解析失败]", "[原始数据][" + json + "]", DateTime.Now);
+
+                return msg;
+            }
         }
     }
 }
