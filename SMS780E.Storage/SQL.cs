@@ -56,7 +56,7 @@ namespace SMS780E.Storage
         //使用sql查询语句，并显示结果
         internal DataTable GetAllMsg()
         {
-            string sql = "select * from recvbox order by recvtime desc";
+            string sql = "select id, sender, recvtime, isunread from recvbox order by id desc";
             SQLiteCommand command = new SQLiteCommand(sql, conn);
             SQLiteDataReader reader = command.ExecuteReader();
             //while (reader.Read())

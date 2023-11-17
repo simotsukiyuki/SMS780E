@@ -34,6 +34,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.选项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.清除自动登录信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.许可证信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +57,6 @@
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripSeparator();
             this.退出ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.timerLastMsgCounter = new System.Windows.Forms.Timer(this.components);
-            this.清除自动登录信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -75,27 +75,26 @@
             this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(2460, 1402);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(681, 498);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(48, 48);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.选项ToolStripMenuItem,
             this.关于ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(2460, 50);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 20);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -107,20 +106,32 @@
             this.toolStripSeparator1,
             this.退出ToolStripMenuItem});
             this.选项ToolStripMenuItem.Name = "选项ToolStripMenuItem";
-            this.选项ToolStripMenuItem.Size = new System.Drawing.Size(101, 46);
+            this.选项ToolStripMenuItem.Size = new System.Drawing.Size(44, 18);
             this.选项ToolStripMenuItem.Text = "选项";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(448, 54);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
             this.toolStripMenuItem1.Text = "邮箱转发设置";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // 清除自动登录信息ToolStripMenuItem
+            // 
+            this.清除自动登录信息ToolStripMenuItem.Name = "清除自动登录信息ToolStripMenuItem";
+            this.清除自动登录信息ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.清除自动登录信息ToolStripMenuItem.Text = "清除自动登录信息";
+            this.清除自动登录信息ToolStripMenuItem.Click += new System.EventHandler(this.清除自动登录信息ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -130,20 +141,20 @@
             this.许可证信息ToolStripMenuItem,
             this.关于SMS780EToolStripMenuItem});
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(101, 46);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 18);
             this.关于ToolStripMenuItem.Text = "关于";
             // 
             // 许可证信息ToolStripMenuItem
             // 
             this.许可证信息ToolStripMenuItem.Name = "许可证信息ToolStripMenuItem";
-            this.许可证信息ToolStripMenuItem.Size = new System.Drawing.Size(376, 54);
+            this.许可证信息ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.许可证信息ToolStripMenuItem.Text = "许可证信息";
             this.许可证信息ToolStripMenuItem.Click += new System.EventHandler(this.许可证信息ToolStripMenuItem_Click);
             // 
             // 关于SMS780EToolStripMenuItem
             // 
             this.关于SMS780EToolStripMenuItem.Name = "关于SMS780EToolStripMenuItem";
-            this.关于SMS780EToolStripMenuItem.Size = new System.Drawing.Size(376, 54);
+            this.关于SMS780EToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.关于SMS780EToolStripMenuItem.Text = "关于SMS780E";
             this.关于SMS780EToolStripMenuItem.Click += new System.EventHandler(this.关于SMS780EToolStripMenuItem_Click);
             // 
@@ -155,10 +166,10 @@
             this.panel1.Controls.Add(this.tbSearch);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(2, 52);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(1, 21);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2456, 51);
+            this.panel1.Size = new System.Drawing.Size(982, 20);
             this.panel1.TabIndex = 1;
             // 
             // btSendMsg
@@ -172,10 +183,10 @@
             this.btSendMsg.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(244)))));
             this.btSendMsg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSendMsg.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btSendMsg.Location = new System.Drawing.Point(720, 0);
-            this.btSendMsg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btSendMsg.Location = new System.Drawing.Point(288, 0);
+            this.btSendMsg.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btSendMsg.Name = "btSendMsg";
-            this.btSendMsg.Size = new System.Drawing.Size(200, 50);
+            this.btSendMsg.Size = new System.Drawing.Size(80, 20);
             this.btSendMsg.TabIndex = 4;
             this.btSendMsg.Text = "发送信息";
             this.btSendMsg.UseVisualStyleBackColor = false;
@@ -192,10 +203,10 @@
             this.btRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(244)))));
             this.btRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btRefresh.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btRefresh.Location = new System.Drawing.Point(515, 0);
-            this.btRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btRefresh.Location = new System.Drawing.Point(206, 0);
+            this.btRefresh.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(200, 50);
+            this.btRefresh.Size = new System.Drawing.Size(80, 20);
             this.btRefresh.TabIndex = 3;
             this.btRefresh.Text = "重新加载";
             this.btRefresh.UseVisualStyleBackColor = false;
@@ -212,10 +223,10 @@
             this.tbSearchGo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(146)))), ((int)(((byte)(244)))));
             this.tbSearchGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tbSearchGo.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tbSearchGo.Location = new System.Drawing.Point(418, 0);
-            this.tbSearchGo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearchGo.Location = new System.Drawing.Point(167, 0);
+            this.tbSearchGo.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tbSearchGo.Name = "tbSearchGo";
-            this.tbSearchGo.Size = new System.Drawing.Size(92, 50);
+            this.tbSearchGo.Size = new System.Drawing.Size(37, 20);
             this.tbSearchGo.TabIndex = 2;
             this.tbSearchGo.Text = "GO";
             this.tbSearchGo.UseVisualStyleBackColor = false;
@@ -223,19 +234,19 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(145, 2);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearch.Location = new System.Drawing.Point(58, 1);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(262, 42);
+            this.tbSearch.Size = new System.Drawing.Size(107, 21);
             this.tbSearch.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(3, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 30);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "搜索信息";
             // 
@@ -246,15 +257,15 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 107);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 43);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 123;
             this.dataGridView1.RowTemplate.Height = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(2456, 1243);
+            this.dataGridView1.Size = new System.Drawing.Size(982, 434);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -265,23 +276,23 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tss_state,
             this.tss_lastNewMsg});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1352);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 478);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 12, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(2460, 50);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(984, 20);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // tss_state
             // 
             this.tss_state.Name = "tss_state";
-            this.tss_state.Size = new System.Drawing.Size(77, 37);
+            this.tss_state.Size = new System.Drawing.Size(32, 15);
             this.tss_state.Text = "状态";
             // 
             // tss_lastNewMsg
             // 
             this.tss_lastNewMsg.Name = "tss_lastNewMsg";
-            this.tss_lastNewMsg.Size = new System.Drawing.Size(425, 37);
+            this.tss_lastNewMsg.Size = new System.Drawing.Size(172, 15);
             this.tss_lastNewMsg.Text = "上一条短信接收于很久以前……";
             // 
             // notifyIcon1
@@ -302,12 +313,12 @@
             this.toolStripComboBox1,
             this.退出ToolStripMenuItem1});
             this.contextMenuStripNotifyIcon.Name = "contextMenuStripNotifyIcon";
-            this.contextMenuStripNotifyIcon.Size = new System.Drawing.Size(305, 154);
+            this.contextMenuStripNotifyIcon.Size = new System.Drawing.Size(161, 76);
             // 
             // 显示主界面ToolStripMenuItem
             // 
             this.显示主界面ToolStripMenuItem.Name = "显示主界面ToolStripMenuItem";
-            this.显示主界面ToolStripMenuItem.Size = new System.Drawing.Size(304, 48);
+            this.显示主界面ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.显示主界面ToolStripMenuItem.Text = "显示主界面";
             this.显示主界面ToolStripMenuItem.Click += new System.EventHandler(this.显示主界面ToolStripMenuItem_Click);
             // 
@@ -316,19 +327,19 @@
             this.tsmNewMsgEnabled.Checked = true;
             this.tsmNewMsgEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tsmNewMsgEnabled.Name = "tsmNewMsgEnabled";
-            this.tsmNewMsgEnabled.Size = new System.Drawing.Size(304, 48);
+            this.tsmNewMsgEnabled.Size = new System.Drawing.Size(160, 22);
             this.tsmNewMsgEnabled.Text = "启用新消息提醒";
             this.tsmNewMsgEnabled.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripComboBox1
             // 
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(301, 6);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(157, 6);
             // 
             // 退出ToolStripMenuItem1
             // 
             this.退出ToolStripMenuItem1.Name = "退出ToolStripMenuItem1";
-            this.退出ToolStripMenuItem1.Size = new System.Drawing.Size(304, 48);
+            this.退出ToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.退出ToolStripMenuItem1.Text = "退出";
             this.退出ToolStripMenuItem1.Click += new System.EventHandler(this.退出ToolStripMenuItem1_Click);
             // 
@@ -338,26 +349,14 @@
             this.timerLastMsgCounter.Interval = 60000;
             this.timerLastMsgCounter.Tick += new System.EventHandler(this.timerLastMsgCounter_Tick);
             // 
-            // 清除自动登录信息ToolStripMenuItem
-            // 
-            this.清除自动登录信息ToolStripMenuItem.Name = "清除自动登录信息ToolStripMenuItem";
-            this.清除自动登录信息ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
-            this.清除自动登录信息ToolStripMenuItem.Text = "清除自动登录信息";
-            this.清除自动登录信息ToolStripMenuItem.Click += new System.EventHandler(this.清除自动登录信息ToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(445, 6);
-            // 
             // DesktopForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2460, 1402);
+            this.ClientSize = new System.Drawing.Size(681, 498);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "DesktopForm";
             this.Text = "副卡短信接收工具-适配合宙LuatOS Air780E(G)版";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
